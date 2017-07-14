@@ -1694,6 +1694,32 @@
 		font-size: 0.8em;
 	}
 
+	.tooltip {
+		position: relative;
+		display: inline-block;
+	}
+
+.tooltip .tooltiptext {
+	visibility: hidden;
+	width: 120px;
+	/*background-color: whitesmoke; */
+	color: darkgray;
+	text-align: center;
+	border-radius: 6px;
+	padding: 10px 0;
+
+	/* Position the tooltip */
+	position: absolute;
+	z-index: 1;
+	top: 130%;
+	left: 50%;
+	margin-left: -60px;
+}
+
+.tooltip:hover .tooltiptext {
+	visibility: visible;
+}
+
 /* Sections/Article */
 
 	section, article {
