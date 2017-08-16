@@ -21,6 +21,57 @@ function createTable(iSize, tMagic)
   document.getElementById('tMagicSq').appendChild(eTable);
 }
 
+function initTable(n)
+{
+  // initialize to 0
+  var t = [];
+  for (var r = 0; r < n; r++)
+  {
+    var tRow = [];
+    for (c = 0; c < n; c++)
+    {
+      tRow.push(0);
+    }
+    t.push(tRow);
+  }
+  return t;
+}
+
+function computeOddTable(n)
+{
+  var
+  i = Math.floor(n / 2),
+  j = n - 1,
+  tOdd = initTable(n);
+
+  for (var num = 1; num <= n * n;)
+  {
+    if (i == -1 && j == n)
+    {
+      i = 0; j = n - 2;
+    }
+    else
+    {
+      if (j == n) j = 0;
+      if (i == -1) i = n - 1;
+    }
+
+    if (tOdd[i][j] > 0)
+    {
+      j -= 2; i++;
+      continue;
+    }
+    else
+    {
+      tOdd[i][j] = num++;
+    }
+
+    j++; i--;
+  }
+
+  return tOdd;
+}
+
 function compute()
 {
   var
@@ -29,21 +80,10 @@ function compute()
   tMagic = [],
   iSum =  iSize * (iSize * iSize + 1) / 2;
 
-  // initialize to 0
-  for (var r = 0; r < iSize; r++)
-  {
-    var tRow = [];
-    for (c = 0; c < iSize; c++)
-    {
-      tRow.push(0);
-    }
-    tMagic.push(tRow);
-  }
-
-  // odd size
+  // different algorithms based on size
+  if (iSize % 2 != 0) tMagic = computeOddTable(iSize);
 
   // add HTML elements
-  tMagicInfo.innerHTML = "Magic square [size: " + iSize + ", sum: " + iSum + "]: <br />";
-
+  tMagicInfo.innerHTML = "Magic square [magic constant: " + iSum + "]: <br />";
   createTable(iSize, tMagic);
 }
