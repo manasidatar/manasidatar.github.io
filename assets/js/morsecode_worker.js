@@ -1,7 +1,8 @@
   function convert()
   {
     var converter = new Module.MorseCodeConverter;
-    converter.setInputString(document.getElementById('inbox').value);
+    var inStr = document.getElementById('inbox').value.replace("\n", " \n ");
+    converter.setInputString(inStr);
     converter.performConversion();
     var convString = converter.getConvertedString();
     document.getElementById('outbox').value = convString;
