@@ -7,7 +7,7 @@
 <html>
 
 <head>
-  <title>[MD] Totally Useless Widgets</title>
+  <title>[MD] Widgets</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
@@ -15,6 +15,7 @@
   <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
   <style>
     textarea {
+      resize: vertical;
       width: 100%;
       padding: 10px;
       /* Safari/Chrome, other WebKit */
@@ -23,6 +24,15 @@
       -moz-box-sizing: border-box;
       /* IE 8+ */
       box-sizing: border-box;
+    }
+
+     table {
+      border: 2px solid lightgray;
+    }
+
+    td {
+      padding: 5px;
+      border: 1px solid lightgray;
     }
   </style>
 </head>
@@ -36,8 +46,8 @@
       <!-- Inner -->
       <div class="inner">
         <header>
-          <h1>Totally useless widgets</h1>
-          <p>"to do" - someone</p>
+          <h1>Widgets</h1>
+          <p>"It is better to have useless knowledge than to know nothing." - Seneca</p>
         </header>
       </div>
 
@@ -94,9 +104,8 @@
           <h6>attempt to learn cross-compilation from C++ to Javascript</h6>
         </header>
         <p>
-          Valid sources:<br />
-            - English text (alphabets/numbers/special characters)<br />
-            - Morse code with single-space-separated letters and double-space-separated words<br />
+          Valid sources:<br /> - English text (alphabets/numbers/special characters)<br /> - Morse code with single-space-separated
+          letters and double-space-separated words<br />
         </p>
         <div class="row">
           <div class="6u">
@@ -115,112 +124,140 @@
         </footer> -->
         <hr />
       </div>
-    </div>
 
-    <!-- Footer -->
-    <div id="footer">
-      <div class="container">
+      <div class="container" id="magicSq">
+        <header>
+          <!-- <i class="fa fa-puzzle-piece fa-3x fa-pull-left fa-border" aria-hidden="true"></i> -->
+          <h2>Magic square generator</h2>
+          <h6>attempt to learn dynamic HTML element creation using Javascript</h6>
+        </header>
+        <p>
+          to do
+        </p>
         <div class="row">
-
-          <!-- Technology -->
-          <section class="6u 12u(mobile)">
-            <header align="left">
-              <i class="fa fa-cogs fa-3x fa-pull-left fa-border" aria-hidden="true"></i>
-              <h2 align="left">Technology</h2>
-              <h6 align="left">that drives these widgets</h6>
-            </header>
-            <ul class="divided">
-              <li> </li>
-              <li>
-                <article>
-                  <h6>
-                  <a href="http://kripken.github.io/emscripten-site/index.html" target="_blank">
-                  emscripten </a></h6>
-                  <span class="timestamp">crosscompiler to convert C/C++ code into Javascript</span>
-                </article>
-              </li>
-              <li>
-                <article><h6>
-                  <a href="https://en.wikipedia.org/wiki/Canon_EOS_400D" target="_blank">
-                    Github
-                  </a></h6>
-                  <span class="timestamp">used for 10+ years</span><br />
-                </article>
-              </li>
-            </ul>
-          </section>
-
-          <!-- Resources -->
-          <section class="6u 12u(mobile)">
-            <header align="left">
-              <i class="fa fa-map-signs fa-3x fa-pull-left fa-border" aria-hidden="true"></i>
-              <h2 align="left">Go figure</h2>
-              <h6 align="left">further reading</h6>
-            </header>
-            <ul class="divided">
-              <li></li>
-              <li>
-                <article>
-                  <h6>
-                    <a href="https://en.wikipedia.org/wiki/Morse_code" target="_blank">
-                      Morse code
-                    </a>
-                  </h6>
-                  <span class="timestamp">Morse code dictionary, history and development, variants, mnemonics for learning, etc.</span>
-                </article>
-              </li>
-            </ul>
-          </section>
-        </div>
-        <footer align=center>
-          <a href="#nav" class="button"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i></a>
-        </footer>
-        <hr />
-        <div class="row">
-          <div class="12u">
-
-            <!-- Contact -->
-            <section id="info" class="contact">
-              <header>
-                <h3>Get in touch...</h3>
-              </header>
-              <ul class="icons">
-                <li><a href="mailto:manasi.datar@gmail.com" target=_blank class="icon fa-envelope-o"><span class="label">Email</span></a></li>
-                <li><a href="https://www.linkedin.com/in/manasidatar/" target=_blank class="icon fa-linkedin"><span class="label">Linkedin</span></a></li>
-                <li><a href="https://plus.google.com/u/0/+ManasiDatar" target=_blank class="icon fa-google-plus"><span class="label">GooglePlus</span></a></li>
-                <li><a href="https://www.facebook.com/manasi.datar.00" target=_blank class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-              </ul>
-            </section>
-
-            <!-- Copyright -->
-            <div class="copyright">
-              <ul class="menu">
-                <li>&copy; Manasi Datar.</li>
-                <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-              </ul>
-            </div>
-
+          <div class="4u">
+            Size: <input name="sqSize" id="sqSize" type="number" min="3" max="10" /> <br />
+            <button onclick="compute();">compute</button>
           </div>
-
+          <div class="8u" id="tMagicSq">
+            <p id="sqInfo"></p>
+          </div>
+          <!-- <footer align=center>
+          <a href="#nav" class="button"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i></a>
+        </footer> -->
         </div>
+      <hr />
       </div>
     </div>
 
-  </div>
+      <!-- Footer -->
+      <div id="footer">
+        <div class="container">
+          <div class="row">
 
-  <!-- Scripts -->
-  <script src="assets/js/jquery.min.js"></script>
-  <script src="assets/js/jquery.dropotron.min.js"></script>
-  <script src="assets/js/jquery.scrolly.min.js"></script>
-  <script src="assets/js/jquery.onvisible.min.js"></script>
-  <script src="assets/js/skel.min.js"></script>
-  <script src="assets/js/util.js"></script>
-  <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-  <script src="assets/js/main.js"></script>
+            <!-- Technology -->
+            <section class="6u 12u(mobile)">
+              <header align="left">
+                <i class="fa fa-cogs fa-3x fa-pull-left fa-border" aria-hidden="true"></i>
+                <h2 align="left">Technology</h2>
+                <h6 align="left">that drives these widgets</h6>
+              </header>
+              <ul class="divided">
+                <li> </li>
+                <li>
+                  <article>
+                    <h6>
+                      <a href="http://kripken.github.io/emscripten-site/index.html" target="_blank">
+                  emscripten </a></h6>
+                    <span class="timestamp">crosscompiler to convert C/C++ code into Javascript</span>
+                  </article>
+                </li>
+                <li>
+                  <article>
+                    <h6>
+                      <a href="https://en.wikipedia.org/wiki/Canon_EOS_400D" target="_blank">
+                    Github
+                  </a></h6>
+                    <span class="timestamp">used for 10+ years</span><br />
+                  </article>
+                </li>
+              </ul>
+            </section>
 
-  <!-- Morse code widget -->
-  <script src="assets/js/MorseCodeConverter.js"></script>
-  <script src="assets/js/morsecode_worker.js"></script>
+            <!-- Resources -->
+            <section class="6u 12u(mobile)">
+              <header align="left">
+                <i class="fa fa-map-signs fa-3x fa-pull-left fa-border" aria-hidden="true"></i>
+                <h2 align="left">Go figure</h2>
+                <h6 align="left">further reading</h6>
+              </header>
+              <ul class="divided">
+                <li></li>
+                <li>
+                  <article>
+                    <h6>
+                      <a href="https://en.wikipedia.org/wiki/Morse_code" target="_blank">
+                      Morse code
+                    </a>
+                    </h6>
+                    <span class="timestamp">Morse code dictionary, history and development, variants, mnemonics for learning, etc.</span>
+                  </article>
+                </li>
+              </ul>
+            </section>
+          </div>
+          <footer align=center>
+            <a href="#nav" class="button"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i></a>
+          </footer>
+          <hr />
+          <div class="row">
+            <div class="12u">
+
+              <!-- Contact -->
+              <section id="info" class="contact">
+                <header>
+                  <h3>Get in touch...</h3>
+                </header>
+                <ul class="icons">
+                  <li><a href="mailto:manasi.datar@gmail.com" target=_blank class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+                  <li><a href="https://www.linkedin.com/in/manasidatar/" target=_blank class="icon fa-linkedin"><span class="label">Linkedin</span></a></li>
+                  <li><a href="https://plus.google.com/u/0/+ManasiDatar" target=_blank class="icon fa-google-plus"><span class="label">GooglePlus</span></a></li>
+                  <li><a href="https://www.facebook.com/manasi.datar.00" target=_blank class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+                </ul>
+              </section>
+
+              <!-- Copyright -->
+              <div class="copyright">
+                <ul class="menu">
+                  <li>&copy; Manasi Datar.</li>
+                  <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                </ul>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.dropotron.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/jquery.onvisible.min.js"></script>
+    <script src="assets/js/skel.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+    <script src="assets/js/main.js"></script>
+
+    <!-- Morse code widget -->
+    <script src="assets/js/MorseCodeConverter.js"></script>
+    <script src="assets/js/morsecode_worker.js"></script>
+
+    <!-- Magic square widget -->
+    <script src="assets/js/magicsq_worker.js"></script>
 
 </body>
 
