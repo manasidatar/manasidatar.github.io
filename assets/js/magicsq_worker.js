@@ -1,9 +1,7 @@
 function createTable(iSize, tMagic)
 {
   var eTable, eTableRow, eTableCol;
-
   eTable = document.createElement('table');
-  eTable.id = 'tMagic';
 
   for (var r = 0; r < iSize; r++)
   {
@@ -76,14 +74,26 @@ function compute()
 {
   var
   iSize = document.getElementById('sqSize').value,
-  tMagicInfo = document.getElementById('sqInfo'),
   tMagic = [],
-  iSum =  iSize * (iSize * iSize + 1) / 2;
+  iSum =  iSize * (iSize * iSize + 1) / 2,
+  tMagicInfo;
 
-  // different algorithms based on size
-  if (iSize % 2 != 0) tMagic = computeOddTable(iSize);
 
   // add HTML elements
-  tMagicInfo.innerHTML = "Magic square [magic constant: " + iSum + "]: <br />";
-  createTable(iSize, tMagic);
+  document.getElementById('tMagicSq').innerHTML = "";
+  tMagicInfo = document.createElement('p');
+
+  // different algorithms based on size
+  if (iSize % 2 != 0)
+  {
+    tMagic = computeOddTable(iSize);
+    tMagicInfo.innerHTML = "Magic square [magic constant: " + iSum + "]: <br />";
+    document.getElementById('tMagicSq').appendChild(tMagicInfo);
+    createTable(iSize, tMagic);
+  }
+  else
+  {
+    tMagicInfo.innerHTML = "Sorry! Only odd sizes work for now :(";
+    document.getElementById('tMagicSq').appendChild(tMagicInfo);
+  }
 }
