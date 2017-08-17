@@ -110,26 +110,6 @@ function computeSEvenTable(n)
     }
   }
 
-  // for (var c = 0; c < nWhole; c++)
-  // {
-  //   for (var r = 0; r < nHalf; r++)
-  //   {
-  //     tmp = tSEven[r][c];
-  //     tSEven[r][c] = tSEven[r + nHalf][c];
-  //     tSEven[r + nHalf][c] = tmp;
-  //   }
-  // }
-
-  // for (var c = n - 1; c > n - nWhole; c--)
-  // {
-  //   for (var r = 0; r < nHalf; r++)
-  //   {
-  //     tmp = tSEven[r][c];
-  //     tSEven[r][c] = tSEven[r + nHalf][c];
-  //     tSEven[r + nHalf][c] = tmp;
-  //   }
-  // }
-
   for (var c = 0; c < nWhole - 1; c++)
   {
     for (var r = 0; r < nHalf; r++)
