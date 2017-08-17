@@ -110,24 +110,45 @@ function computeSEvenTable(n)
     }
   }
 
-  for (var c = 0; c < nWhole; c++)
+  // for (var c = 0; c < nWhole; c++)
+  // {
+  //   for (var r = 0; r < nHalf; r++)
+  //   {
+  //     tmp = tSEven[r][c];
+  //     tSEven[r][c] = tSEven[r + nHalf][c];
+  //     tSEven[r + nHalf][c] = tmp;
+  //   }
+  // }
+
+  // for (var c = n - 1; c > n - nWhole; c--)
+  // {
+  //   for (var r = 0; r < nHalf; r++)
+  //   {
+  //     tmp = tSEven[r][c];
+  //     tSEven[r][c] = tSEven[r + nHalf][c];
+  //     tSEven[r + nHalf][c] = tmp;
+  //   }
+  // }
+
+  for (var c = 0; c < nWhole - 1; c++)
   {
     for (var r = 0; r < nHalf; r++)
     {
       tmp = tSEven[r][c];
       tSEven[r][c] = tSEven[r + nHalf][c];
       tSEven[r + nHalf][c] = tmp;
+
+      tmp = tSEven[r][n - 1 - c];
+      tSEven[r][n - 1 - c] = tSEven[r + nHalf][n - 1 - c];
+      tSEven[r + nHalf][n - 1 - c] = tmp;
     }
   }
 
-  for (var c = n - 1; c > n - nWhole; c--)
+  for (var r = 0; r < nHalf; r++)
   {
-    for (var r = 0; r < nHalf; r++)
-    {
-      tmp = tSEven[r][c];
-      tSEven[r][c] = tSEven[r + nHalf][c];
-      tSEven[r + nHalf][c] = tmp;
-    }
+    tmp = tSEven[r][nWhole - 1];
+    tSEven[r][nWhole - 1] = tSEven[r + nHalf][nWhole - 1];
+    tSEven[r + nHalf][nWhole - 1] = tmp;
   }
 
   // swap middle element
