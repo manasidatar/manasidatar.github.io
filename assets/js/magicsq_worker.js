@@ -70,6 +70,25 @@ function computeOddTable(n)
   return tOdd;
 }
 
+function computeDEvenTable(n)
+{
+  var
+  num = 0;
+  tFillTemplate = [[1, 0, 0, 1], [0, 1, 1, 0], [0, 1, 1, 0], [1, 0, 0, 1]];
+  tDEven = initTable(n);
+
+  for (var r = 0; r < n; r++)
+  {
+    for (var c = 0; c < n; c++)
+    {
+      tDEven[r][c] = tFillTemplate[r % 4][c % 4] ? num + 1 : n * n - num;
+      num++;
+    }
+  }
+
+  return tDEven;
+}
+
 function compute()
 {
   var
@@ -91,9 +110,16 @@ function compute()
     document.getElementById('tMagicSq').appendChild(tMagicInfo);
     createTable(iSize, tMagic);
   }
+  else if (iSize % 4 == 0)
+  {
+    tMagic = computeDEvenTable(iSize);
+    tMagicInfo.innerHTML = "Magic square [magic constant: " + iSum + "]: <br />";
+    document.getElementById('tMagicSq').appendChild(tMagicInfo);
+    createTable(iSize, tMagic);
+  }
   else
   {
-    tMagicInfo.innerHTML = "Sorry! Only odd sizes work for now :(";
+    tMagicInfo.innerHTML = "Sorry! This size does not work yet :(";
     document.getElementById('tMagicSq').appendChild(tMagicInfo);
   }
 }
