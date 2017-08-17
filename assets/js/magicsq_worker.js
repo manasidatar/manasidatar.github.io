@@ -155,6 +155,7 @@ function compute()
   // add HTML elements
   document.getElementById('tMagicSq').innerHTML = "";
   tMagicInfo = document.createElement('p');
+  tMagicInfo.id = "tMagicInfo";
 
   // different algorithms based on size
   if (iSize == 2)
@@ -188,4 +189,11 @@ function compute()
     tMagicInfo.innerHTML = "Sorry! This size does not work yet :(";
     document.getElementById('tMagicSq').appendChild(tMagicInfo);
   }
+}
+
+function clearElems()
+{
+  document.getElementById('sqSize').value = "";
+  document.getElementById('tMagicInfo').innerHTML = "";
+  document.getElementById('tMagicSq').innerHTML = "";
 }
