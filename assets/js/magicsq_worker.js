@@ -89,6 +89,60 @@ function computeDEvenTable(n)
   return tDEven;
 }
 
+function computeSEvenTable(n)
+{
+  var
+  nHalf = Math.floor(n / 2),
+  numShift = nHalf * nHalf,
+  nWhole = Math.floor(n / 4),
+  tA = computeOddTable(nHalf),
+  tSEven = initTable(n),
+  tmp;
+
+  for (var r = 0; r < nHalf; r++)
+  {
+    for (var c = 0; c < nHalf; c++)
+    {
+      tSEven[r][c] = tA[r][c];
+      tSEven[r + nHalf][c + nHalf] = tA[r][c] + numShift;
+      tSEven[r][c + nHalf] = tA[r][c] + 2 * numShift;
+      tSEven[r + nHalf][c] = tA[r][c] + 3 * numShift;
+    }
+  }
+
+  for (var c = 0; c < nWhole; c++)
+  {
+    for (var r = 0; r < nHalf; r++)
+    {
+      tmp = tSEven[r][c];
+      tSEven[r][c] = tSEven[r + nHalf][c];
+      tSEven[r + nHalf][c] = tmp;
+    }
+  }
+
+  for (var c = n - 1; c > n - nWhole; c--)
+  {
+    for (var r = 0; r < nHalf; r++)
+    {
+      tmp = tSEven[r][c];
+      tSEven[r][c] = tSEven[r + nHalf][c];
+      tSEven[r + nHalf][c] = tmp;
+    }
+  }
+
+  // swap middle element
+  tmp = tSEven[nWhole][0];
+  tSEven[nWhole][0] = tSEven[n - 1- nWhole][0];
+  tSEven[n - 1- nWhole][0] = tmp;
+
+  // swap center element
+  tmp = tSEven[nWhole][nWhole];
+  tSEven[nWhole][nWhole] = tSEven[n - 1- nWhole][nWhole];
+  tSEven[n - 1- nWhole][nWhole] = tmp;
+
+  return tSEven;
+}
+
 function compute()
 {
   var
@@ -103,7 +157,12 @@ function compute()
   tMagicInfo = document.createElement('p');
 
   // different algorithms based on size
-  if (iSize % 2 != 0)
+  if (iSize == 2)
+  {
+    tMagicInfo.innerHTML = "Sorry! Magic square of size 2 cannot be constructed :(";
+    document.getElementById('tMagicSq').appendChild(tMagicInfo);
+  }
+  else if (iSize % 2 != 0)
   {
     tMagic = computeOddTable(iSize);
     tMagicInfo.innerHTML = "Magic square [magic constant: " + iSum + "]: <br />";
@@ -113,6 +172,13 @@ function compute()
   else if (iSize % 4 == 0)
   {
     tMagic = computeDEvenTable(iSize);
+    tMagicInfo.innerHTML = "Magic square [magic constant: " + iSum + "]: <br />";
+    document.getElementById('tMagicSq').appendChild(tMagicInfo);
+    createTable(iSize, tMagic);
+  }
+  else if (iSize % 2 == 0)
+  {
+    tMagic = computeSEvenTable(iSize);
     tMagicInfo.innerHTML = "Magic square [magic constant: " + iSum + "]: <br />";
     document.getElementById('tMagicSq').appendChild(tMagicInfo);
     createTable(iSize, tMagic);
